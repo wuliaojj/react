@@ -28,11 +28,11 @@ import { Button } from 'antd-mobile';
 import { connect} from 'react-redux';
 import {addGun,removeGun,addGunAsync} from './index.rudex.js'
 
-const mapStatetoProps = (state) => {
-    return { num: state }
-}
-const actionCreators = { addGun, removeGun, addGunAsync }
-@connect(mapStatetoProps, actionCreators)
+// const mapStatetoProps = (state) => {
+//     return { num: state }
+// }
+// const actionCreators = { addGun, removeGun, addGunAsync }
+// @connect(mapStatetoProps, actionCreators)
 
 class App extends React.Component{
 
@@ -54,11 +54,11 @@ class App extends React.Component{
 }
 
 
-// const mapStatetoProps = (state)=>{
-//     return {num:state}
-// }
-// const actionCreators = { addGun, removeGun, addGunAsync }
+const mapStatetoProps = (state)=>{
+    return { num: state.counter}
+}
+const actionCreators = { addGun, removeGun, addGunAsync }
 
-//第一个参数state的什么属性放到props里，state的什么方法放在props里
-// App = connect(mapStatetoProps, actionCreators)(App)
+// 第一个参数state的什么属性放到props里，state的什么方法放在props里
+App = connect(mapStatetoProps, actionCreators)(App)
 export default App
